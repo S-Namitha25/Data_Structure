@@ -1,0 +1,53 @@
+class Stack{
+    int a[]=new int[9];
+    int top=-1;
+    public void push(int data){
+        if(top==a.length-1){
+            System.out.println("stack is overflow");
+        }
+        else{
+            top++;
+            a[top]=data;
+        }
+    }
+    public void pop( ){
+        if(top==-1){
+            System.out.println("is empty");
+        }
+        else{
+            top--;
+        }
+    }
+    public void peek(){
+        if(top==-1){
+            System.out.println("empty");
+        }
+        else{
+            System.out.println("top of the element: "+a[top]);
+        }
+    }
+    public void display(){
+        for(int i=top;i>=0;i--){
+            System.out.println("The elements are: "+a[i]);
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Stack s=new Stack();
+	    s.push(100);
+	    s.push(200);
+	    s.push(300);
+	    s.push(400);
+	    s.push(500);
+	    s.push(600);
+	    s.push(700);
+	    s.push(800);
+	    s.push(900);
+	    s.pop();
+	    s.peek();
+	    s.display();
+	}
+}
+
