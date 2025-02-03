@@ -1,0 +1,47 @@
+//import java.util.*;
+class Queue{
+    int a[]=new int[8];
+    int front=-1;
+    int rear=-1;
+    //int size=a.length;
+    public void enqueue(int data){
+        if(rear==a.length-1 && front==a.length-1){
+            System.out.println("queue is full");
+        }
+        else{
+            rear++;
+            a[rear]=data;
+        }
+    }
+    public void dequeue(){
+        if(front==-1 && rear==-1){
+            System.out.println("queue is empty");
+        }
+        else{
+            front--;
+        }
+    }
+    public void peak(){
+        System.out.println("the top most element:" +a[front]);
+    }
+    public void display(){
+        System.out.println("the values are:");
+        for(int i=front;i<rear;i++){
+            System.out.println(a[i]);
+        }
+    }
+}
+class Main{
+    public static void main(String[] args){
+        Queue q=new Queue();
+        q.enqueue(100);
+        q.enqueue(200);
+        q.enqueue(300);
+        q.enqueue(400);
+        q.enqueue(500);
+        q.enqueue(600);
+        q.dequeue();
+        q.peak();
+        q.display();
+    }
+}
