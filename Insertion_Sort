@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter size: ");
+        int n = in.nextInt();
+        int a[] = new int[n];
+        System.out.print("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
+        int count = 0; 
+        for (int i = 1; i < n; i++) { 
+            for (int j = i; j > 0; j--) {
+                if (a[j] < a[j - 1]) {
+                    swap(a, j, j - 1);
+                    count++; 
+                }
+            }
+        }
+        System.out.println();("Sorted array: " + Arrays.toString(a));
+        System.out.print("Total swaps: " + count);
+    }
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
