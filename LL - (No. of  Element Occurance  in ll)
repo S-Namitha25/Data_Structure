@@ -1,0 +1,77 @@
+import java.util.*;
+import java.lang.*;
+
+class LinkedList {                                        // 2.
+	Node head;
+	
+	class Node {
+		int data;
+		Node next;
+		Node(int data) {                                         // 3. CONSTRUCTOR
+			this.data=data;
+			this.next=null;
+		}
+	}
+	
+	void insert(int data) {                                      // 5.
+		Node newNode=new Node(data);
+		
+		if(head==null) {
+			head=newNode;
+			return;
+		}
+		
+		Node temp=head;
+		while(temp.next!=null){
+			temp=temp.next;
+		}
+		temp.next=newNode;
+	}
+	
+	void occurance(int key) {                                      // 6.
+		int count=0;
+		Node temp=head;
+		
+		while(temp!=null) {
+			if(temp.data==key) {
+				count++;
+			}
+			temp=temp.next;
+		}
+		System.out.println("No. of occurance : " +count);
+		return;
+	}
+
+/*	void display() {                                          
+		if(head==null) {
+			System.out.println("empty");
+			return;
+		}
+		Node temp=head;
+		System.out.print("Inserted values are :");
+		while(temp!=null) {
+			System.out.print(temp.data +"  ");
+			temp=temp.next;
+		}
+		System.out.println();
+	}*/
+
+	public static void main(String[] args) {                           // 3.
+		LinkedList List=new LinkedList();
+		Scanner in=new Scanner(System.in);
+		
+		System.out.print("Range: ");
+		int n=in.nextInt();
+		
+		System.out.print("enter values : ");
+		for(int i=0; i<n; i++) {
+			List.insert(in.nextInt());                                      // 4.
+		}
+		//List.display();        
+
+		System.out.print("key value: ");
+		int key=in.nextInt();
+		
+		List.occurance(key);                                               // 6.
+	}
+}
