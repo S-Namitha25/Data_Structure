@@ -1,0 +1,60 @@
+import java.util.*;
+import java.lang.*;
+class LinkedList{
+    Node head;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    void insert(int data){
+        Node newNode=new Node(data);
+        Node temp=head;
+        if(temp==null){
+            head=newNode;
+            return;
+        }
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+    }
+    void max(){
+        if(head==null){
+            System.out.println("list is empty");
+            return;
+        }
+        Node fast=head, slow=head;
+        if(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        System.out.println("value in middle :" +slow.data);
+    }
+    void display(){
+        Node temp=head;
+        System.out.print("inserted values are: ");
+        while(temp!=null){
+            System.out.print(temp.data +"->");
+            temp=temp.next;
+        }
+        System.out.println("null");
+    }
+    public static void main(String[] args){
+        Scanner in=new Scanner(System.in);
+        LinkedList List=new LinkedList();
+        System.out.print("Range: ");
+        int n=in.nextInt();
+        System.out.print("values: ");
+        for(int i=0;i<n;i++){
+            List.insert(in.nextInt());
+    }
+
+            List.display();
+            List.max();
+            in.close();
+    }
+}
