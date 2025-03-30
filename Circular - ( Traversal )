@@ -1,0 +1,51 @@
+import java.util.*;
+import java.lang.*;
+class CircularLL{
+    Node head;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    void insert(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=newNode;
+            head.next=newNode;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=head){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+        newNode.next=head;
+    }
+    void display(){
+        if(head==null){
+            return;
+        }
+        Node temp=head;
+        System.out.print("Circular ll after the traversal: ");
+        do{
+            System.out.print(temp.data +" ");
+            temp=temp.next;
+        }
+        while(temp!=head);
+        System.out.println();
+    }
+    public static void main(String[] args){
+        CircularLL List=new CircularLL();
+        Scanner in=new Scanner(System.in);
+        System.out.print("range: ");
+        int n=in.nextInt();
+        System.out.print("values: ");
+        for(int i=0;i<n;i++){
+            List.insert(in.nextInt());
+        }
+        List.display();
+    }
+}
