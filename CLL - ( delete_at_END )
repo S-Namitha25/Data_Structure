@@ -1,0 +1,69 @@
+import java.util.*;
+import java.lang.*;
+class CircularLinkedList {
+	Node head;
+	class Node {
+		int data;
+		Node next;
+		Node(int data) {
+			this.data=data;
+			this.next=null;
+		}
+	}
+	void insert(int data) {
+		Node newNode=new Node(data);
+		if(head==null) {
+			head=newNode;
+			head.next=newNode;
+			return;
+		}
+		Node temp=head;
+		while(temp.next!=head) {
+			temp=temp.next;
+		}
+		temp.next=newNode;
+		newNode.next=head;
+	}
+	void delete_end() {
+		if(head==null) {
+			System.out.println("list empty");
+			return;
+		}
+		Node temp=head;
+		if(temp.next==head) {
+			head=null;
+			return;
+		}
+
+		while(temp.next.next!=head) {
+			temp=temp.next;
+		}
+		temp.next=head;
+	}
+	void display() {
+		if(head==null) {
+			System.out.println("list empty");
+			return;
+		}
+		Node temp=head;
+		System.out.print("delete at end: ");
+		do {
+			System.out.print(temp.data +" ");
+			temp=temp.next;
+		}
+		while(temp!=head);
+	}
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		CircularLinkedList List=new CircularLinkedList();
+		System.out.print("range: ");
+		int n=in.nextInt();
+		System.out.print("values: ");
+		for(int i=0; i<n; i++) {
+			List.insert(in.nextInt());
+		}
+		List.delete_end();
+		List.display();
+
+	}
+}
