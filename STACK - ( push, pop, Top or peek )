@@ -1,0 +1,188 @@
+import java.util.*;
+import java.lang.*;
+class Stack{
+    int top=-1;
+    int[] value;
+    void create(int n){                            
+        value=new int[n];
+    }
+    
+    void push(int data){
+        if(top==value.length-1){
+            System.out.print("Overflow");
+        }
+        else{
+            top++;
+            value[top]=data;
+        }
+        
+    }
+    
+    void pop(int key) {
+    if(top == -1){
+        System.out.println("Stack is empty");
+        return;
+    }
+
+    int index = -1;
+    for(int i = top; i >= 0; i--){
+        if(value[i] == key){
+            index = i;
+            break;
+        }
+    }
+
+    if(index == -1){
+        System.out.println("Not Found");
+        return;
+    }
+
+    System.out.print("After remove: ");
+    for(int i = index; i < top; i++){
+        value[i] = value[i + 1];
+    }
+
+    top--;
+    for(int i=0;i<=top;i++){
+                System.out.print(value[i] +" ");
+            }
+            System.out.println();
+}
+
+    void top(){
+        if(top==-1){
+            System.out.println("Empty");
+        }
+        else{
+        System.out.println("top value: "+value[top]);
+        }
+    }
+    
+    void display(){
+        if(top==-1){
+            System.out.print("empty");
+        }
+        else{
+            System.out.print("values in stack : ");
+            for(int i=0;i<=top;i++){
+                System.out.print(value[i] +" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args){
+        Scanner in=new Scanner(System.in);
+        Stack s=new Stack();
+        System.out.print("Range : ");
+        int n=in.nextInt();
+       
+        s.create(n);
+        System.out.print("pushed values : ");
+        for(int i=0;i<n;i++){
+            int data=in.nextInt();
+            s.push(data);
+        }
+        s.top();
+        
+        System.out.print("values to remove : ");
+        int key=in.nextInt();
+        s.pop(key);
+        
+        s.display();
+}
+}
+
+
+with Constructor :
+
+import java.util.*;
+import java.lang.*;
+class Stack{
+    int top=-1;
+    int[] value;
+    Stack(int size){                                  // constructor
+        value=new int[size];
+    }
+    
+    void push(int data){
+        if(top==value.length-1){
+            System.out.print("Overflow");
+        }
+        else{
+            top++;
+            value[top]=data;
+        }
+        
+    }
+    
+    void pop(int key) {
+    if(top == -1){
+        System.out.println("Stack is empty");
+        return;
+    }
+
+    int index = -1;
+    for(int i = top; i >= 0; i--){
+        if(value[i] == key){
+            index = i;
+            break;
+        }
+    }
+
+    if(index == -1){
+        System.out.println("Not Found");
+        return;
+    }
+
+    System.out.print("After remove: ");
+    for(int i = index; i < top; i++){
+        value[i] = value[i + 1];
+    }
+
+    top--;
+    for(int i=0;i<=top;i++){
+                System.out.print(value[i] +" ");
+            }
+            System.out.println();
+}
+
+    void top(){
+        if(top==-1){
+            System.out.println("Empty");
+        }
+        else{
+        System.out.println("top value: "+value[top]);
+        }
+    }
+    
+    void display(){
+        if(top==-1){
+            System.out.print("empty");
+        }
+        else{
+            System.out.print("values in stack : ");
+            for(int i=0;i<=top;i++){
+                System.out.print(value[i] +" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args){
+        Scanner in=new Scanner(System.in);
+        System.out.print("Range : ");
+        int n=in.nextInt();
+        Stack s=new Stack(n);
+        System.out.print("pushed values : ");
+        for(int i=0;i<n;i++){
+            int data=in.nextInt();
+            s.push(data);
+        }
+        s.top();
+        
+        System.out.print("values to remove : ");
+        int key=in.nextInt();
+        s.pop(key);
+        
+        s.display();
+}
+}
