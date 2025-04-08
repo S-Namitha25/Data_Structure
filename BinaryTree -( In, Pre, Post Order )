@@ -1,0 +1,108 @@
+import java.util.*;
+public class BinaryTree{
+    Node root;
+    class Node{
+        int data;
+        Node left,right;
+        Node(int data){
+            this.data=data;
+            left=null;
+            right=null;
+        }
+    }
+    public BinaryTree(int data){
+        root=new Node(data);
+    }
+    public void insertLeft(Node root,int val){
+        Node newNode=new Node(val);
+        root.left=newNode;
+    }
+    public  void insertRight(Node root,int val){
+        Node newNode=new Node(val);
+        root.right=newNode;
+    }
+    public static void inorder(Node root){
+        if(root!=null){
+            inorder(root.left );
+            System.out.print(root.data +"->");
+            inorder(root.right);
+        }
+    }
+    public static void preorder(Node root){
+        if(root!=null){
+            System.out.print(root.data  +"->");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+    public static void postorder(Node root){
+        if(root!=null){
+            postorder(root.left );
+            postorder(root.right);
+            System.out.print(root.data +"->");
+        }
+    }
+	public static void main(String[] args) {
+
+
+	    /*
+	    BinaryTree t=new BinaryTree(10);
+	    t.insertLeft(t.root,50);
+	    t.insertRight(t.root,55);
+	   
+	    t.insertLeft(t.root.left,6);
+	    t.insertRight(t.root.right,9);
+	    System.out.println("Preorder: ");
+	    BinaryTree.preorder(t.root);
+	    System.out.println();
+	    
+	    System.out.println("Postorder: ");
+	    BinaryTree.postorder(t.root);
+	     System.out.println();
+	     
+	     System.out.println("Inorder: ");
+	    BinaryTree.inorder(t.root);
+	     System.out.println();       */
+
+USING SCANNER  :
+
+	     Scanner in=new Scanner(System.in);
+	     System.out.print("root: ");
+	     int n=in.nextInt();
+	     BinaryTree tree=new BinaryTree(n);
+	     
+	     System.out.print("Left Child :");
+	     int left= in.nextInt();
+	     tree.insertLeft(tree.root, left);
+	     
+	     System.out.print("Right Child :");
+	     int right=in.nextInt();
+	     tree.insertRight(tree.root, right);
+	     
+	     System.out.print("Left Left Child :");
+	     int llchild=in.nextInt();
+	     tree.insertLeft(tree.root.left, llchild);
+	     
+	     System.out.print("Right Right Child :");
+	     int rrchild=in.nextInt();
+	     tree.insertRight(tree.root.right, rrchild);
+	     System.out.println();
+	     
+	     System.out.print("preorder : ");
+	     BinaryTree.preorder(tree.root);
+	     System.out.println();
+	     System.out.println();
+	     
+	     System.out.print("postorder :");
+	     BinaryTree.postorder(tree.root);
+	     System.out.println();
+	     System.out.println();
+	     
+	     System.out.print("inorder :");
+	     BinaryTree.inorder(tree.root);
+	     System.out.println();
+	     
+	     
+	     
+	}
+}
