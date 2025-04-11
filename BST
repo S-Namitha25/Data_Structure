@@ -1,0 +1,50 @@
+class BinarySearchTree{
+    Node root;
+class Node{
+    int data;
+    Node left;
+    Node right;
+    Node(int data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+}
+void insert(int data){
+    root=insertNode(root,data);
+}
+public Node insertNode(Node node,int data){
+    if(node==null){
+        return new Node(data);
+    }
+    if(data< node.data){
+        node.left=insertNode(node.left,data);
+    }
+    else if(data>node.data){
+        node.right=insertNode(node.right,data);
+    }
+    return node;
+}
+public void inorderTraversal(Node node){
+    if(node!=null){
+        inorderTraversal(node.left);
+        System.out.print(node.data +" ");
+        inorderTraversal(node.right);
+    }
+}
+}
+class Main{
+public static void main(String[] args){
+    BinarySearchTree bt=new BinarySearchTree();
+    bt.insert(100);
+    bt.insert(80);
+    bt.insert(120);
+    bt.insert(90);
+    bt.insert(6);
+    bt.insert(18);
+    bt.insert(1);
+    bt.insert(56);
+    bt.insert(45);
+    bt.inorderTraversal(bt.root);
+ }
+}
