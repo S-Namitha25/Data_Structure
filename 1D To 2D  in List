@@ -1,0 +1,37 @@
+import java.util.*;
+class Main{
+    public static  int[][] array(int[]original,int m,int n){
+        if(original.length!=(m*n)){
+            return new int[0][0];
+    }
+    int value[][]=new int[m][n];
+    int count=0;
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            value[i][j]=original[count];
+            count++;
+        }
+    }
+    return value;
+        
+    }
+    public static void main(String[] rgs){
+        Scanner in=new Scanner(System.in);
+        int ss=in.nextInt();
+        int []original=new int[ss];
+        for(int i=0;i<ss;i++){
+            original[i]=in.nextInt();
+        }
+        int m=in.nextInt();
+        int n=in.nextInt();
+        
+        
+        int [][]value=array(original,m,n);
+        for(int row[]:value){
+           // for(int num:row){
+                System.out.print(Arrays.toString(row) +" ");
+            //}
+            //System.out.println();
+    }
+}
+}
